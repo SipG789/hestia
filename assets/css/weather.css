@@ -1,0 +1,99 @@
+:root{
+  --main-color:hsl(171, 100%, 41%);
+  --color-black:black;
+  --color-white:white;
+}
+
+/* header starts */
+h2{
+  font-size: 45px;
+}
+/* header ends */
+
+
+
+/* col one starts */
+input{
+  margin-bottom: 10px;
+  padding: 20px;
+}
+
+button{
+  padding: 10px;
+  font-size: 20px;
+}
+
+.row-one{
+  min-height: 80vh;
+}
+
+#col-one{
+  width: 100px;
+  margin-left: 20px;
+}
+
+p.city{
+  font-size: 20px;
+  font-weight: bold;
+  background-color: lightgray;
+  padding: 25px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+p.city:hover{
+  background-color: var(--main-color);
+  border: 1px solid var(--color-black);
+}
+
+.uv-index{
+  background-color: rgb(12, 141, 12);
+  font-size: 23px;
+  color: white;
+  padding:5px 20px 5px 20px;
+  border-radius: 15px;
+}
+/* col one ends */
+
+
+
+/* col two starts */
+.col-two-content-one{
+  min-height: 30vh;
+  padding: 10px;
+} 
+
+.city-info{
+  font-size: 32px;
+}
+
+.col-two-content-two{
+  margin-top:15px;
+  padding: 10px;
+  min-height: 50vh;
+}
+
+#day-col{
+  font-size: 25px;
+  background-color: rgb(61, 55, 55);
+  padding: 10px;
+  color: white;
+  margin: 10px;
+  min-height: 30vh;
+}
+
+.next-days{
+  margin: 15px;
+}
+/* col two ends */
+
+
+.main{
+
+  min-height: 100vh;
+}
+
+#min{
+
+  min-height: 100vh;
+}
