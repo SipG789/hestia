@@ -13,29 +13,10 @@ h2{
 
 
 /* col one starts */
-input{
-  margin-bottom: 10px;
-  padding: 20px;
-}
-
-button{
-  padding: 10px;
-  font-size: 20px;
-}
-
-.row-one{
-  min-height: 80vh;
-}
-
-#col-one{
-  width: 100px;
-  margin-left: 20px;
-}
-
 p.city{
   font-size: 20px;
   font-weight: bold;
-  background-color: lightgray;
+  background-color: rgb(61, 55, 55);
   padding: 25px;
   margin: 10px;
   cursor: pointer;
@@ -43,6 +24,7 @@ p.city{
 
 p.city:hover{
   background-color: var(--main-color);
+  color: var(--color-black);
   border: 1px solid var(--color-black);
 }
 
@@ -53,18 +35,27 @@ p.city:hover{
   padding:5px 20px 5px 20px;
   border-radius: 15px;
 }
+
+#user-input{
+  border: 2px solid black;
+}
+
+#search{
+  color: black;
+}
+
+#search:hover{
+  background-color: black;
+  color: white;
+}
 /* col one ends */
 
 
 
 /* col two starts */
-.col-two-content-one{
-  min-height: 30vh;
-  padding: 10px;
-} 
-
 .city-info{
-  font-size: 32px;
+  font-size: 38px;
+  margin-top:25px ;
 }
 
 .col-two-content-two{
@@ -80,20 +71,28 @@ p.city:hover{
   color: white;
   margin: 10px;
   min-height: 30vh;
+  cursor: pointer;
+}
+#day-col:hover{
+  background-color: var(--main-color);
+  color: var(--color-black);
+  border-radius: 5px;
 }
 
 .next-days{
   margin: 15px;
 }
+
 /* col two ends */
+#col-1{
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+  border-right: 2px solid black;
+  background-color: bisque;
 
-
-.main{
-
-  min-height: 100vh;
 }
 
-#min{
-
-  min-height: 100vh;
+#city-infos{
+  border: 1px solid black;
 }
