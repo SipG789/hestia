@@ -81,13 +81,28 @@ function getApi (city){
           wind.innerHTML = valueWindName;
           temp.innerHTML = valueTempName;
 
-          var oneCallUrl = 'http://api.openweathermap.org/data/2.5/onecall?lat='+ valueLat + '&lon='+ valueLon +'&lang=zh_cn&appid=d43b06dc5d3db058fa0badac12a7945a';
+          // var oneCallUrl = 'http://api.openweathermap.org/data/2.5/onecall?lat='+valueLat+'&lon='+valueLon+'&appid=d43b06dc5d3db058fa0badac12a7945a';
+          var oneCallUrl = 'http://api.openweathermap.org/data/2.5/onecall?lat='+valueLat+'&lon='+valueLon+'&callback=test&appid=d43b06dc5d3db058fa0badac12a7945a'
           fetch(oneCallUrl).then(function(data){
             console.log(data);
-            console.log(Date('1647475026'));
+            // console.log(`date is : ${Date('1647712800')}`);
+            // var dayOne = document.getElementById('day-one');
+            // console.log(dayOne);
+            // var windDayOne = document.getElementById('wind-day-one');
+            // console.log(windDayOne);
+            // var tempDayOne = document.getElementById('temp-day-one');
+            // console.log(tempDayOne);
+            // var humidutyDayOne = document.getElementById('humidity-day-one');
+            // console.log(humidutyDayOne);
 
-            // var date = new Date('1647475026')
-            // // var datte = new Date(Date'1647475026');
+   
+
+            // dayOne.textContent = data['current']['clauds'];
+
+      
+
+
+            
 
           })
         });
