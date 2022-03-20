@@ -4,10 +4,146 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home-restaurant-tracker</title>
+  <!--Bulma CDN link-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <!--Font awesome link-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css" integrity="sha384-3B6NwesSXE7YJlcLI9RpRqGf2p/EgVH8BgoKTaUrmKNDkHPStTQ3EyoYjCGXaOTS" crossorigin="anonymous">
+  <!--Google fonts link-->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"/>
+  <!--Css link-->
+  <link rel="stylesheet" href="./assets/css/weather.css">
+  <title>Weather Dashboard</title>
 </head>
-<body>
+<body class="">
+  <!--header starts-->
+  <header class="hero-body is-text-center has-background-primary"> 
+    <h1 class="is-flex is-align-items-center is-justify-content-center is-centered is-size-1"><strong>Weather Dashboard</strong></h1>
+  </header>
+   <!--header ends-->
 
 
+
+  <!-- section one starts -->
+  <section class="main">
+    <!-- row starts -->
+    <div class="columns">
+      <!-- col one starts -->
+      <div class="column is-one-quarter" id="col-1">
+        <div class="col-one-fist-content">
+          <h2 class="is-sflex has-text-dark m-5"><strong> Search for a city:</strong></h2>
+          <input class="input input-class is-large is-fullwidth m-2" type="text" placeholder="Search here" id="user-input"> 
+          <button class="button is-medium is-fullwidth is-primary m-2 is-size-4" id="search">Search</button>
+          <hr class="has-background-dark"> 
+        </div>
+
+        <!-- did create these inputes to get the values of every sigle one, whenever a certain button is clicked  -->
+        <input type="hidden" name="city-austin" id="city-austin-value" value="austin">
+        <input type="hidden" name="city-chicago" id="city-chicago-value" value="chicago">
+        <input type="hidden" name="city-new-york" id="city-new-york-value" value="new york">
+        <input type="hidden" name="city-orlando" id="city-orlando-value" value="orlando">
+        <input type="hidden" name="city-san-francicso" id="city-san-francisco-value" value="san francisco">
+        <input type="hidden" name="city-seattle" id="city-seattle-value" value="seattle">
+        <input type="hidden" name="city-seattle" id="city-denver-value" value="denver">
+        <input type="hidden" name="city-atlanta" id="city-atlanta-value" value="atlanta">
+        <input type="hidden" name="city-san-antonio" id="city-san-antonio-value" value="san antonio">
+        <div class="is-centered ml-2">
+          <div class="is-align-content-center second-content-context has-text-white">
+            <p class="city austin is-rounded">Austin</p>
+            <p class="city chicago is-rounded">Chicago</p>
+            <p class="city new-york is-rounded">New York</p>
+            <p class="city orlando is-rounded">Orlando</p>
+            <p class="city san-francisco is-rounded">San Francisco</p>
+            <p class="city seattle is-rounded">Seattle</p>
+            <p class="city denver is-rounded">Denver</p>
+            <p class="city atlanta is-rounded">Atlanta</p>
+          </div>
+        </div>
+
+      </div>
+      <!-- col one ends -->
+
+
+
+      <!-- col two starts -->
+      <div class="column m-5">       
+          <div class="columns" id="city-infos">
+            <div class="column is-large is-fullwidth has" id="first-col">
+              <p class="city-info"><span class="current-city"><strong></strong></span></p>
+              <p class="city-info">Temp: <span class="temp"></span></p>
+              <p class="city-info">Wind: <span class="wind"></span></p>
+              <p class="city-info">Humidity: <span class=" humidity"></span></p>
+              <p class="city-info">UI Index: <span class="uv-index"></span></p>
+            </div>
+          </div>
+          
+
+          <div class="column" id="col-two-content-two ">
+              <h2 class="is-flex is-fullwidth mt-6 ">5-Day Forecast:</h2>
+
+              <div class="columns row-two-col-context mt-4">
+                <!--row-two-col-one-->
+                 <div class="column" id="day-col">
+                  <div class="next-days" id="day-one"></div>
+                  <div class="next-days" id="icon-day-one"></div>
+                  <div class="next-days" id="temp-day-one"></div>
+                  <div class="next-days" id="wind-day-one"></div>
+                  <div class="next-days" id="humidity-day-one"></div>
+                </div>
+
+                <!--row-two-col-two-->
+                <div class="column" id="day-col">
+                  <div class="next-days" id="day-one"></div>
+                  <div class="next-days" id="icon-day-one"></div>
+                  <div class="next-days" id="temp-day-one"></div>
+                  <div class="next-days" id="wind-day-one"></div>
+                  <div class="next-days" id="humidity-day-one"></div>
+                </div>
+
+                <!--row-two-col-three-->
+                <div class="column" id="day-col">
+                  <div class="next-days" id="day-two"></div>
+                  <div class="next-days" id="icon-day-two"></div>
+                  <div class="next-days" id="temp-day-two"></div>
+                  <div class="next-days" id="wind-day-two"></div>
+                  <div class="next-days" id="humidity-day-two"></div>
+                </div>
+
+                <!--row-two-col-four-->
+                <div class="column" id="day-col">
+                  <div class="next-days" id="day-three"></div>
+                  <div class="next-days" id="icon-day-three"></div>
+                  <div class="next-days" id="temp-day-three"></div>
+                  <div class="next-days" id="wind-day-three"></div>
+                  <div class="next-days" id="humidity-day-three"></div>
+                </div>
+
+                <!--row-two-col-five-->
+                <div class="column" id="day-col">
+                  <div class="next-days" id="day-four"></div>
+                  <div class="next-days" id="icon-day-four"></div>
+                  <div class="next-days" id="temp-day-four"></div>
+                  <div class="next-days" id="wind-day-four"></div>
+                  <div class="next-days" id="humidity-day-four"></div>
+                </div>
+              </div>  
+
+          </div>
+
+      </div>  
+      <!-- col two ends -->
+
+    </div>
+    <!-- row ends -->
+
+  </section> 
+  <!-- section one ends -->
+  
+
+
+  <!--JQuery cdn-->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <!--Moment.js  cdn-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="./assets/js/app.js"></script>
 </body>
 </html>

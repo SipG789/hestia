@@ -16,6 +16,29 @@ body{
   padding: 35px;
 }
 
+#col a{
+  list-style: none;
+  text-decoration: none;
+}
+
+#col:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+
+
+button{
+  background-color: white;
+  border-radius: 15px;
+  padding: 5px 15px 5px 15px;
+  font-size: 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 .fa-solid{
   font-size: 30px;
 }
@@ -35,23 +58,4 @@ font-size: 30px;
   background-color: rgb(50, 218, 218);
 }
 
-#col:hover {
-  background-color: white;
-  color: black;
-  cursor: pointer;
-  border-radius: 15px;
-}
 
-button{
-  background-color: white;
-  border-radius: 15px;
-  padding: 5px 15px 5px 15px;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-a{
-  text-decoration: none;
-  list-style: none;
-  color: red;
-}
