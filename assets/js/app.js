@@ -1,5 +1,5 @@
+var apiKey = '7657d829bc488b1c62813a7e28777fcb';
 var userInput = document.getElementById('user-input');
-console.log(`user input: ${userInput}`);
 var userInputData = userInput.textContent.trim(); // this will get us the user input value, and trim any extra space
 var temp = document.querySelector('.temp');
 var wind = document.querySelector('.wind');
@@ -12,30 +12,14 @@ var cityText = document.querySelectorAll('.city').textContent;
 
 // all the buttons that will listen for event
 var searchBtn = document.getElementById('search'); //1 search button by input value
-
 var austinBtn = document.querySelector('.austin'); //2 austin p tag class name
-console.log(`austin is: ${austinBtn}`);
-
 var chicagoBtn = document.querySelector('.chicago'); //3 chicago p tag class name
-console.log(`chicago is: ${chicagoBtn}`);
-
 var orlandoBtn = document.querySelector('.orlando'); //4 orlando p tag class name
-console.log(`orlando is: ${orlandoBtn}`);
-
 var sanFranciscoBtn = document.querySelector('.san-francisco');//5 san francisco p tag class name
-console.log(`san francisco is: ${sanFranciscoBtn}`);
-
 var seattleBtn = document.querySelector('.seattle');//6 seattle p tag class name
-console.log(`seattle is: ${seattleBtn}`);
-
 var newYorkBtn = document.querySelector('.new-york');//7 new york p tag class name
-console.log(`new york is: ${newYorkBtn}`);
-
 var denverBtn = document.querySelector('.denver');//8 denver p tag class name
-console.log(`denver is: ${denverBtn}`);
-
 var atlantaBtn = document.querySelector('.atlanta');//9  atlanta p tag class name
-console.log(`atlanta is: ${atlantaBtn}`);
 
 
 // all the variables that the event listeners will get the values from 
@@ -48,76 +32,100 @@ var seattle = document.getElementById('city-seattle-value');
 var denver = document.getElementById('city-denver-value');
 var atlanta = document.getElementById('city-atlanta-value');
 var sanAntonio = document.getElementById('city-san-antonio-value');
-console.log(`new york is:${newYork}`);
+// console.log(`new york is:${newYork}`);
+// coord: {lon: -97.7431, lat: 30.2672}
+// lat: 30.2672
+// lon: -97.7431
 
 
 function getApi (city){
   return function(e) {
-  console.log(`city = ${city}`);
 
-  if(city.value){
-    //API url to get the weather data
-    var requestUrl = 'http://api.openweathermap.org/data/2.5/weather?q=' + city.value + ',us&appid=d43b06dc5d3db058fa0badac12a7945a';   
+  if(city){
+    // //API url to get the weather data
+    var requestUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city.value},us&appid=${apiKey}`;   
 
     fetch(requestUrl).then(function(response) {  // this will take the response and turn it to an object 
       // request was successful
       if (response.ok) {
         response.json().then(function(data){
-         
-          
-          // convert the date to real time numbers
-          var valueLon = data['coord']['lon'];
-          var valueLat = data['coord']['lat'];
-          console.log(`time is: ${valueLat},${valueLon}`);
+          console.log(data);
+          var lat = data.coord.lat
+          var lon = data.coord.lon
+          console.log(`coord are:${lat},${lon}`);
 
-          var valueHumidityName = data['main']['humidity'];
-          var currentCityName = data['name'];
-          var curentCityState =  data['sys']['country'];
+
+          var valueHumidityName = data.main.humidity;
+          var currentCityName = data.name;
+          var curentCityState =  data.sys.country;
+
+          // convert unix time to current date format using moment.js 
+          var curentCitytime =  data.sys.sunrise;
+          var date = moment.unix(curentCitytime).format('MM/DD/YYYY');
+            console.log(`date is:${date}`);
           var valueTempName = data['main']['temp'];
           var valueWindName = data['wind']['speed'];
 
-          currentCity.innerHTML  = currentCityName + ' ' + curentCityState + ' ';
+          //display data
+          currentCity.innerHTML  = currentCityName + ' ' + curentCityState + ' ' + '' + date;
           humidity.innerHTML = valueHumidityName;
           wind.innerHTML = valueWindName;
           temp.innerHTML = valueTempName;
 
-          // var oneCallUrl = 'http://api.openweathermap.org/data/2.5/onecall?lat='+valueLat+'&lon='+valueLon+'&appid=d43b06dc5d3db058fa0badac12a7945a';
-          var oneCallUrl = 'http://api.openweathermap.org/data/2.5/onecall?lat='+valueLat+'&lon='+valueLon+'&callback=test&appid=d43b06dc5d3db058fa0badac12a7945a'
-          fetch(oneCallUrl).then(function(data){
-            console.log(data);
-            // console.log(`date is : ${Date('1647712800')}`);
-            // var dayOne = document.getElementById('day-one');
-            // console.log(dayOne);
-            // var windDayOne = document.getElementById('wind-day-one');
-            // console.log(windDayOne);
-            // var tempDayOne = document.getElementById('temp-day-one');
-            // console.log(tempDayOne);
-            // var humidutyDayOne = document.getElementById('humidity-day-one');
-            // console.log(humidutyDayOne);
-
-   
-
-            // dayOne.textContent = data['current']['clauds'];
-
-      
-
-
-            
-
-          })
+        
+        // response.json().then(function(data){
+        //   console.log(`data for onecall is: ${data}`);
+        //   for (i=0; i<=5; i++){ 
+        //   // var fiveDayForecast = data.daily[i];
+        //   var hum = document.querySelector('.day-humidity');
+        //   hum.textContent = data.daily[0].clouds
+          
+        //   }
+         
+        // });
+        
         });
+        
       }else {
         alert('Error: city User Not Found');
       }
-    })
-    .catch(function(error) {
+
+    }).catch(function(error) {
+      // Notice this `.catch()` getting chained onto the end of the `.then()` method
+      console.error(error)
+      alert("Unable to connect to weather");
+    });
+  } 
+};
+}
+
+
+function getApiFiveDay(latitude, longitude) {
+  
+    // var oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=32&lon=32&appid=${apiKey}`;   
+    // var oneCallUrl = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`
+    var oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly&units=imperial&appid=${apiKey}`;
+    fetch( oneCallUrl).then(function(response) {  // this will take the response and turn it to an object 
+      // request was successful
+      if (response.ok) {
+
+       
+      }else {
+        alert('Error: city User Not Found');
+      }
+
+    }).catch(function(error) {
       // Notice this `.catch()` getting chained onto the end of the `.then()` method
       console.error(error)
       alert("Unable to connect to weather");
     });
   }
-};
-}
+
+
+  function displayResult(){
+    
+  } 
+
 
 searchBtn.addEventListener('click', getApi(userInput));
 austinBtn.addEventListener('click', getApi(austin));
