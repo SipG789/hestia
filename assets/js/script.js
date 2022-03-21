@@ -22,18 +22,32 @@ fetch(requestUrl1)
 console.log(data);
 var meal = data.meals[0]
 
-
+// console.log(test.length)
 
 var listGroupE1 = document.createElement("ul");//ul 
-for (var i = 1; i <= 10; i++){
+var listHeader = document.createElement('lh')
+var listInstructions = document.createElement('lh')
+listGroupE1.appendChild(listHeader)
+listGroupE1.appendChild(listInstructions)
+
+
+
+for (var i = 1; i <= 20; i++){
   // console.log(data[i].strIngredient1 + "  " + data[i].strMeasure1)
-  var listHeader = document.createElement('lh')
   var listE1 =document.createElement("li")//li
   var ingredient = "strIngredient" + i
-  listE1.textContent = (meal[ingredient] + ", " + meal['strMeasure' + i])//li + text
+
+  if(meal[ingredient] != null && meal[ingredient] != ''){
+    listE1.textContent = (meal[ingredient] + ", " + meal['strMeasure' + i])//li + texts
+  }
+  
+ 
+  // console.log(meal[ingredient].length)
   listGroupE1.appendChild(listE1)//ul + li (text)
   listHeader.textContent = (meal['strMeal'])
-  listGroupE1.appendChild(listHeader)
+  listInstructions.textContent = (meal['strInstructions'])
+
+
 }
 menu.appendChild(listHeader);
 menu.appendChild(listGroupE1);//html + ul (li's)
