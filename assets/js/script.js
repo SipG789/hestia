@@ -19,7 +19,12 @@ fetch(requestUrl1)
   return response.json();
 })
 .then(function (data) {
+if( data.meals != null){
+  console.log("yes")
+
+console.log(typeof(data.meals))
 console.log(data);
+// if(data.meals)
 var meal = data.meals[0]
 
 // console.log(test.length)
@@ -39,11 +44,12 @@ for (var i = 1; i <= 20; i++){
 
   if(meal[ingredient] != null && meal[ingredient] != ''){
     listE1.textContent = (meal[ingredient] + ", " + meal['strMeasure' + i])//li + texts
+    listGroupE1.appendChild(listE1)//ul + li (text)
   }
   
  
   // console.log(meal[ingredient].length)
-  listGroupE1.appendChild(listE1)//ul + li (text)
+
   listHeader.textContent = (meal['strMeal'])
   listInstructions.textContent = (meal['strInstructions'])
 
@@ -51,6 +57,12 @@ for (var i = 1; i <= 20; i++){
 }
 menu.appendChild(listHeader);
 menu.appendChild(listGroupE1);//html + ul (li's)
+}
+else{
+ var error = document.createElement('h1')
+ error.textContent = "No recipes found, try another one."
+menu.appendChild(error)
+}
 })
 
 // submit.addEventListener('click', apiCall(food));
