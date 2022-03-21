@@ -9,6 +9,7 @@ function getInputValue() {
   apiCall(food)
 }
 
+
 var apiCall = function(food) {
 
 //var requestUrl1 = "https://cors-anywhere.herokuapp.com/" + "https://www.themealdb.com/api/json/v1/1/search.php?s=" + food;
@@ -74,7 +75,10 @@ menu.appendChild(error)
 }
 
 
-
+function refreshThePage(){
+  document.location.reload(true);
+}
+document.getElementById('button1').addEventListener('click', refreshThePage);
 document.getElementById('button').addEventListener('click', getInputValue);
 // submit.addEventListener('click', console.log(food));
 
