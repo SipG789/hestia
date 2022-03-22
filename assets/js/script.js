@@ -1,12 +1,15 @@
 var menu = document.getElementById('menu');
+var modal = document.querySelector('.modal-overlay');
 
 function getInputValue() {
+    // show the modal
+    modal.style.visibility = 'visible'; 
+
   // Selecting the input element and get its value 
   let food = document.getElementById("inputId").value;
   // Displaying the value
   apiCall(food)
 }
-
 
 var apiCall = function(food) {
 
@@ -72,18 +75,16 @@ menu.appendChild(error)
 
 
 
+}
 
-
-
-
+function startAgain(){
+  modal.style.visibility = 'hidden';
+  document.location.reload();
 }
 
 
-function refreshThePage(){
-  document.location.reload(true);
-}
-document.getElementById('button1').addEventListener('click', refreshThePage);
-document.getElementById('button').addEventListener('click', getInputValue);
+document.getElementById('button-search').addEventListener('click', getInputValue);
+document.querySelector('.btn-close').addEventListener('click', startAgain)
 
 
 
