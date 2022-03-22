@@ -1,2 +1,2 @@
-# home-restaurant-tracker
-An app where you can find a home within a city and then find a list of restaurants nearby
+# Weather-Recipes-App
+An app where you can get the weather of a specific location, and also many recipes that will allow you make a meal of your dreams while the weather is bad in your current location.
