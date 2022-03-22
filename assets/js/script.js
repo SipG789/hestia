@@ -22,13 +22,13 @@ fetch(requestUrl1)
 if( data.meals != null){
   console.log("yes")
 
-console.log(typeof(data.meals))
+console.log(data.meals)
 
 
 var meal = data.meals[0]
 
-
-
+// var vList = document.createElement("a")
+var spacer = document.createElement("br")
 var listGroupE1 = document.createElement("ul");//ul 
 var listHeader = document.createElement('lh')
 var listInstructions = document.createElement('lh')
@@ -41,10 +41,13 @@ for (var i = 1; i <= 20; i++){
   // creates dynamic response
   var listE1 =document.createElement("li")//li
   var ingredient = "strIngredient" + i
-
   if(meal[ingredient] != null && meal[ingredient] != ''){
     listE1.textContent = (meal[ingredient] + ",  " + meal['strMeasure' + i])//li + texts
     listGroupE1.appendChild(listE1)//ul + li (text)
+    
+    listGroupE1.appendChild(spacer)
+    // menu.appendChild(vList)
+    
   }
   
  
@@ -52,11 +55,12 @@ for (var i = 1; i <= 20; i++){
 
   listHeader.textContent = (meal['strMeal'])
   listInstructions.textContent = (meal['strInstructions'])
-
-
+  menu.innerHTML = ('<a href=" ' + meal['strYoutube'] + '">Recipe Link  </a>' )
+// console.log()
 }
 menu.appendChild(listHeader);
 menu.appendChild(listGroupE1);//html + ul (li's)
+
 }
 else{
  var error = document.createElement('h1')
