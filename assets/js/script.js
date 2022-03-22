@@ -27,7 +27,7 @@ console.log(data.meals)
 
 var meal = data.meals[0]
 
-// var vList = document.createElement("a")
+
 var spacer = document.createElement("br")
 var listGroupE1 = document.createElement("ul");//ul 
 var listHeader = document.createElement('lh')
@@ -46,7 +46,7 @@ for (var i = 1; i <= 20; i++){
     listGroupE1.appendChild(listE1)//ul + li (text)
     
     listGroupE1.appendChild(spacer)
-    // menu.appendChild(vList)
+   
     
   }
   
@@ -55,8 +55,9 @@ for (var i = 1; i <= 20; i++){
 
   listHeader.textContent = (meal['strMeal'])
   listInstructions.textContent = (meal['strInstructions'])
+  //YoutubeLink
   menu.innerHTML = ('<a href=" ' + meal['strYoutube'] + '">Recipe Link  </a>' )
-// console.log()
+
 }
 menu.appendChild(listHeader);
 menu.appendChild(listGroupE1);//html + ul (li's)
