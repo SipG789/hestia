@@ -1,7 +1,6 @@
 var menu = document.getElementById('menu');
 
 function getInputValue() {
-  alert("123code")
   // Selecting the input element and get its value 
   let food = document.getElementById("inputId").value;
   // Displaying the value
@@ -11,6 +10,7 @@ function getInputValue() {
 
 var apiCall = function(food) {
 
+//to prevent CORS errors.
 //var requestUrl1 = "https://cors-anywhere.herokuapp.com/" + "https://www.themealdb.com/api/json/v1/1/search.php?s=" + food;
 var requestUrl1 = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + food;
 
@@ -23,11 +23,11 @@ if( data.meals != null){
   console.log("yes")
 
 console.log(typeof(data.meals))
-console.log(data);
-// if(data.meals)
+
+
 var meal = data.meals[0]
 
-// console.log(test.length)
+
 
 var listGroupE1 = document.createElement("ul");//ul 
 var listHeader = document.createElement('lh')
@@ -48,7 +48,7 @@ for (var i = 1; i <= 20; i++){
   }
   
  
-  // console.log(meal[ingredient].length)
+ 
 
   listHeader.textContent = (meal['strMeal'])
   listInstructions.textContent = (meal['strInstructions'])
