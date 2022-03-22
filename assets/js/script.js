@@ -1,6 +1,7 @@
 var menu = document.getElementById('menu');
 
 function getInputValue() {
+  alert("123code")
   // Selecting the input element and get its value 
   let food = document.getElementById("inputId").value;
   // Displaying the value
