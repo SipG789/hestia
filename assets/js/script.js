@@ -1,46 +1,78 @@
-var menu = document.getElementById('menu-result');
-var btnSearch = document.getElementById('button-search')
-var listGroupE1 = document.querySelector('.menu-result')
-var btnClose = document.querySelector('.btn-close');
+var menu = document.getElementById('menu');
 var modal = document.querySelector('.modal-overlay');
 
-
 function getInputValue() {
-  // show the modal
-  modal.style.visibility = 'visible';
+    // show the modal
+    modal.style.visibility = 'visible'; 
+
   // Selecting the input element and get its value 
   let food = document.getElementById("inputId").value;
   // Displaying the value
   apiCall(food)
 }
 
-// apiCall function start
 var apiCall = function(food) {
 var requestUrl1 = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + food;
 
-fetch(requestUrl1)
-.then(function (response){
-  return response.json();
-}).then(function (data) {
-console.log(data);
-var meal = data.meals[0]
+  fetch(requestUrl1)
+  .then(function (response){
+    return response.json();
+  })
+  .then(function (data) {
+  if( data.meals != null){
+    console.log("yes")
 
-for (var i = 1; i <= 10; i++){
-  var mealName = document.querySelector('mealName');
-  console.log(mealName);
-  var instructions = document.querySelector('instructions');
+  console.log(typeof(data.meals))
+  console.log(data);
+  // if(data.meals)
   var meal = data.meals[0]
-  instructions.innerHTML = meal;
+  var listGroupE1 = document.createElement("ul");//ul 
+  var listHeader = document.createElement('lh')
+  var listInstructions = document.createElement('lh')
+  listInstructions.classList = 'insturctions'
+  listGroupE1.appendChild(listHeader)
+  listGroupE1.appendChild(listInstructions)
+
+  for (var i = 1; i <= 20; i++){
+    // creates dynamic response
+    var listE1 =document.createElement("li")
+    var ingredient = "strIngredient" + i
+
+    if(meal[ingredient] != null && meal[ingredient] != ''){
+      listE1.textContent = (meal[ingredient] + ",  " + meal['strMeasure' + i])//li + texts
+      listGroupE1.appendChild(listE1)//ul + li (text)
+    }
+
+    listHeader.textContent = (meal['strMeal'])
+    listInstructions.textContent = (meal['strInstructions'])
+  }
+
+  menu.appendChild(listHeader);
+  menu.appendChild(listGroupE1);//html + ul (li's)
 }
-});
+else{
+ var error = document.createElement('h1')
+ error.textContent = "No recipes found, try another one."
+menu.appendChild(error)
+}
+})
+
+
+
 }
 
-// hide the modal
 function startAgain(){
   modal.style.visibility = 'hidden';
+  document.location.reload();
 }
 
 
-btnSearch.addEventListener('click', getInputValue);
-btnClose.addEventListener('click', startAgain)
+document.getElementById('button-search').addEventListener('click', getInputValue);
+document.querySelector('.btn-close').addEventListener('click', startAgain)
+
+
+
+
+
+
 

@@ -55,13 +55,7 @@ p.city:hover{
 /* col two starts */
 .city-info{
   font-size: 38px;
-  margin-top:25px ;
-}
-
-.col-two-content-two{
-  margin-top:15px;
-  padding: 10px;
-  min-height: 50vh;
+  margin-top:25px;
 }
 
 #day-col{
@@ -95,4 +89,24 @@ p.city:hover{
 
 #city-infos{
   border: 1px solid black;
+}
+
+#home-btn{
+  background-color: var(--main-color);
+  color: var(--color-black);
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+#home-btn:hover{
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border: 2px solid white;
+}
+
+#home-weather-page{
+  background-image: url(/assets/images/weather.logo.png);
+  background-position: center;
 }

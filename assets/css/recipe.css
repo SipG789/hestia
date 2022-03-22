@@ -113,3 +113,15 @@ h1 {
     padding: 20px;
     cursor: pointer;
   }
+
+  #menu {
+    margin-top: 50px;
+    padding: 30px;
+    border: 2px solid var(--main-color);
+    
+  }
+
+  .insturctions{
+    background-color: rgb(152, 152, 163);
+    padding:5px;
+  }
