@@ -1,7 +1,5 @@
 var menu = document.getElementById('menu');
-// var food = document.getElementById("username");
-// var submit = document.getElementById("Submit");
-//  let inputId = document.getElementById("inputId");
+
 function getInputValue() {
   // Selecting the input element and get its value 
   let food = document.getElementById("inputId").value;
@@ -39,12 +37,12 @@ listGroupE1.appendChild(listInstructions)
 
 
 for (var i = 1; i <= 20; i++){
-  // console.log(data[i].strIngredient1 + "  " + data[i].strMeasure1)
+  // creates dynamic response
   var listE1 =document.createElement("li")//li
   var ingredient = "strIngredient" + i
 
   if(meal[ingredient] != null && meal[ingredient] != ''){
-    listE1.textContent = (meal[ingredient] + ", " + meal['strMeasure' + i])//li + texts
+    listE1.textContent = (meal[ingredient] + ",  " + meal['strMeasure' + i])//li + texts
     listGroupE1.appendChild(listE1)//ul + li (text)
   }
   
@@ -66,7 +64,7 @@ menu.appendChild(error)
 }
 })
 
-// submit.addEventListener('click', apiCall(food));
+
 
 
 
@@ -80,22 +78,10 @@ function refreshThePage(){
 }
 document.getElementById('button1').addEventListener('click', refreshThePage);
 document.getElementById('button').addEventListener('click', getInputValue);
-// submit.addEventListener('click', console.log(food));
-
-
-// console.log(food)
 
 
 
 
 
 
-// fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=" + food)
-// .then(response => response.json()).then(responseData => {
-//   console.log(responseData) 
-//   var listGroupE1 = document.createElement("ul");
-  // for (var i = 0; i < food.length; i++) {
-  //   console.log(food[i].strIngredient1, '  ', food[i].strMeasure1)
-  // }
 
-// });
