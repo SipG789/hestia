@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="./assets/css/weather.css">
   <title>Weather Dashboard</title>
 </head>
-<body class="">
+<body>
   <!--header starts-->
   <header class="hero-body is-text-center has-background-primary"id="weather-color"> 
     <h1 class="is-flex is-align-items-center is-justify-content-center is-centered is-size-1"><strong>Weather Dashboard</strong></h1>
@@ -74,96 +74,99 @@
               <p class="city-info">Humidity:<span class=" humidity"></span></p>
               <p class="city-info">UI Index:<span class="uv-index"></span></p>
             </div>
-            <div class="column is is-flex is-justify-content-space-between" id="home-weather-page">
+            <div class="column is is-flex is-justify-content-space-between is-align-items-center" id="home-weather-page">
               <a href="index.html"><button class="is-size-4" id="home-btn">Back Home</button></a>
               <a href="recipes.html"><button class="is-size-4" id="home-btn">Get Recepi</button></a>
             </div>
           </div>
           
-
+          <!-- row-two-col-two start  -->
           <div class="column" id="col-two-content-two">
-              <h2 class="is-flex is-fullwidth mt-6 is-size-1" style="font-weight: bold;">5-Day Forecast:</h2>
+            <!-- row-two-col-two col-one-starts -->
+            <h2 class="is-flex is-fullwidth mt-6 is-size-1" style="font-weight: bold;">5-Day Forecast:</h2>
+            <!-- row-two-col-two col-two-ends -->
 
-              <div class="columns row-two-col-context mt-4">
+            <!-- row-two-col-two col-two-starts -->
+            <div class="columns row-two-col-context mt-4"> 
 
-                <!--row-two-col-one-->
-                  <div class="column days-block" id="day-one-col_1">
-                  <ul class="day-weather has-background-dark has-text-white is-size-4 p-5">
-                    <div class="day-weather-content">
-                      <li>Date:<span class="day-date_1 m-1" id="span-space"></span></li>
-                      <li>Humidity:<span class="day-humidity_1 m-3" id="span-space"></span></li>
-                      <li>Temp:<span class="day-temp_1 m-3" id="span-space"></span</li>
-                      <li>wind:<span class="day-wind_1 m-3" id="span-space"></span></li>
-                      <li>UVI:<span class="day-ui-index_1 m-3" id="span-space"></span></li>
-                      <img src="" alt="" class="img_1">
-                    </div>                   
-                  </ul>
-                </div>
+              <!--row-two-col-one-->
+              <div class="column days-block" id="day-one-col_1">
+                <ul class="day-weather has-background-dark has-text-white is-size-4 p-5">
+                  <div class="day-weather-content">
+                    <li>Date:<span class="day-date_1 m-1" id="span-space"></span></li>
+                    <li>Humidity:<span class="day-humidity_1 m-3" id="span-space"></span></li>
+                    <li>Temp:<span class="day-temp_1 m-3" id="span-space"></span</li>
+                    <li>wind:<span class="day-wind_1 m-3" id="span-space"></span></li>
+                    <li>UVI:<span class="day-ui-index_1 m-3" id="span-space"></span></li>
+                    <img src="" alt="" class="img_1">
+                  </div>                   
+                </ul>
+              </div>
 
-                <!--row-two-col-two-->
-                <div class="column days-block" id="day-one-col_2">
-                  <ul class="day-weather has-background-dark has-text-white is-size-4 p-5">
-                    <div class="day-weather-content" >
-                      <li>Date:<span class="day-date_2 m-1" id="span-space"></span></li>
-                      <li>Humidity:<span class="day-humidity_2 m-3" id="span-space"></span></li>
-                      <li>Temp:<span class="day-temp_2 m-3" id="span-space"></span</li>
-                      <li>wind:<span class="day-wind_2 m-3" id="span-space"></span></li>
-                      <li>UVI:<span class="day-ui-index_2 m-3" id="span-space"></span></li>
-                      <img src="" alt="" class="img_2">
-                    </div>                   
-                  </ul>
-                </div>
+              <!--row-two-col-two-->
+              <div class="column days-block" id="day-one-col_2">
+                <ul class="day-weather has-background-dark has-text-white is-size-4 p-5">
+                  <div class="day-weather-content" >
+                    <li>Date:<span class="day-date_2 m-1" id="span-space"></span></li>
+                    <li>Humidity:<span class="day-humidity_2 m-3" id="span-space"></span></li>
+                    <li>Temp:<span class="day-temp_2 m-3" id="span-space"></span</li>
+                    <li>wind:<span class="day-wind_2 m-3" id="span-space"></span></li>
+                    <li>UVI:<span class="day-ui-index_2 m-3" id="span-space"></span></li>
+                    <img src="" alt="" class="img_2">
+                  </div>                   
+                </ul>
+              </div>
 
-                <!--row-two-col-three-->
-                <div class="column days-block" id="day-one-col_3">
-                  <ul class="day-weather has-background-dark has-text-white is-size-4 p-5">
-                    <div class="day-weather-content" >
-                      <li>Date:<span class="day-date_3 m-1" id="span-space"></span></li>
-                      <li>Humidity:<span class="day-humidity_3 m-3" id="span-space"></span></li>
-                      <li>Temp:<span class="day-temp_3 m-3" id="span-space"></span</li>
-                      <li>wind:<span class="day-wind_3 m-3" id="span-space"></span></li>
-                      <li>UVI:<span class="day-ui-index_3 m-3" id="span-space"></span></li>
-                      <img src="" alt="" class="img_3">
-                    </div>                   
-                  </ul>
-                </div>
+              <!--row-two-col-three-->
+              <div class="column days-block" id="day-one-col_3">
+                <ul class="day-weather has-background-dark has-text-white is-size-4 p-5">
+                  <div class="day-weather-content" >
+                    <li>Date:<span class="day-date_3 m-1" id="span-space"></span></li>
+                    <li>Humidity:<span class="day-humidity_3 m-3" id="span-space"></span></li>
+                    <li>Temp:<span class="day-temp_3 m-3" id="span-space"></span</li>
+                    <li>wind:<span class="day-wind_3 m-3" id="span-space"></span></li>
+                    <li>UVI:<span class="day-ui-index_3 m-3" id="span-space"></span></li>
+                    <img src="" alt="" class="img_3">
+                  </div>                   
+                </ul>
+              </div>
 
-                <!--row-two-col-four-->
-                <div class="column days-block" id="day-one-col_4">
-                  <ul class="day-weather has-background-dark has-text-white is-size-4 p-5">
-                    <div class="day-weather-content">
-                      <li>Date:<span class="day-date_4  m-1" id="span-space"></span></li>
-                      <li>Humidity:<span class="day-humidity_4 m-3" id="span-space"></span></li>
-                      <li>Temp:<span class="day-temp_4 m-3" id="span-space"></span</li>
-                      <li>wind:<span class="day-wind_4 m-3" id="span-space"></span></li>
-                      <li>UVI:<span class="day-ui-index_4 m-3" id="span-space"></span></li>
-                      <img src="" alt="" class="img_4">
-                    </div>                   
-                  </ul>
-                </div>
-                
-                <!--row-two-col-five-->
-                <div class="column days-block" id="day-one-col_5">
-                  <ul class="day-weather has-background-dark has-text-white is-size-4 p-5">
-                    <div class="day-weather-content" >
-                      <li>Date:<span class="day-date_5 m-1" id="span-space"></span></li>
-                      <li>Humidity:<span class="day-humidity_5 m-3" id="span-space"></span></li>
-                      <li>Temp:<span class="day-temp_5 m-3" id="span-space"></span</li>
-                      <li>wind:<span class="day-wind_5 m-3" id="span-space"></span></li>
-                      <li>UVI:<span class="day-ui-index_5 m-3" id="span-space"></span></li>
-                      <img src="" alt="" class="img_5">
-                    </div>                   
-                  </ul>
-                </div>
+              <!--row-two-col-four-->
+              <div class="column days-block" id="day-one-col_4">
+                <ul class="day-weather has-background-dark has-text-white is-size-4 p-5">
+                  <div class="day-weather-content">
+                    <li>Date:<span class="day-date_4  m-1" id="span-space"></span></li>
+                    <li>Humidity:<span class="day-humidity_4 m-3" id="span-space"></span></li>
+                    <li>Temp:<span class="day-temp_4 m-3" id="span-space"></span</li>
+                    <li>wind:<span class="day-wind_4 m-3" id="span-space"></span></li>
+                    <li>UVI:<span class="day-ui-index_4 m-3" id="span-space"></span></li>
+                    <img src="" alt="" class="img_4">
+                  </div>                   
+                </ul>
+              </div>
+              
+              <!--row-two-col-five-->
+              <div class="column days-block" id="day-one-col_5">
+                <ul class="day-weather has-background-dark has-text-white is-size-4 p-5">
+                  <div class="day-weather-content" >
+                    <li>Date:<span class="day-date_5 m-1" id="span-space"></span></li>
+                    <li>Humidity:<span class="day-humidity_5 m-3" id="span-space"></span></li>
+                    <li>Temp:<span class="day-temp_5 m-3" id="span-space"></span</li>
+                    <li>wind:<span class="day-wind_5 m-3" id="span-space"></span></li>
+                    <li>UVI:<span class="day-ui-index_5 m-3" id="span-space"></span></li>
+                    <img src="" alt="" class="img_5">
+                  </div>                   
+                </ul>
+              </div>
 
-          </div>
-
-      </div>  
-      <!-- col two ends -->
-
+            </div>
+            <!-- row-two-col-two col-two-ends --> 
+          </div>  
+          <!-- row two col two ends -->
+      </div>
+       <!-- col two ends -->
     </div>
     <!-- row ends -->
-
   </section> 
   <!-- section one ends -->
   

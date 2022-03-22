@@ -29,7 +29,6 @@ console.log(data);
 // if(data.meals)
 var meal = data.meals[0]
 
-// console.log(test.length)
 
 var listGroupE1 = document.createElement("ul");//ul 
 listGroupE1.classList = 'ul'
@@ -44,7 +43,8 @@ listGroupE1.appendChild(listInstructions)
 for (var i = 1; i <= 20; i++){
   // creates dynamic response
   var listE1 =document.createElement("li")//li
-  var ingredient = "strIngredient" + i
+  listE1.className = 'list-item'
+  var ingredient = "strIngredient" + i;
 
   if(meal[ingredient] != null && meal[ingredient] != ''){
     listE1.textContent = (meal[ingredient] + ",  " + meal['strMeasure' + i])//li + texts
@@ -72,9 +72,29 @@ menu.appendChild(error)
 
 }
 
+// function that will take you over the first section and reload the page, to delete the previous searched item
 function startAgain(){
   modal.style.visibility = 'hidden';
   document.location.reload(true);
+}
+
+const hexArray = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
+const hexBtn  = document.getElementById('color-hex');
+const colorTwo = document.querySelector('.color');
+
+hexBtn.addEventListener('mouseover', function(e){
+  let hexColor ='#';
+  for(let i= 0; i<6; i++){
+    hexColor+=hexArray[ getRandomNumberTwo()];
+  }
+
+  document.body.style.backgroundColor = hexColor;
+  colorTwo.textContent = hexColor;
+
+  e.preventDefault();
+})
+function getRandomNumberTwo(){
+  return Math.floor(Math.random()*hexArray.length);
 }
 
 document.getElementById('button-search').addEventListener('click', getInputValue);

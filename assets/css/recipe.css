@@ -42,91 +42,99 @@ h1 {
     border: 2px solid;
     border-radius: rgb(0, 0, 0);
   }
-  .btn {
-    cursor: pointer;
-    font-size: 1.3rem;
-    padding: 6px 5px;
+.btn {
+  cursor: pointer;
+  font-size: 1.3rem;
+  padding: 6px 5px;
+  width: 100%;
+  display: block;
+  border-radius: rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+  outline: none;
+  background-color:rgb(255, 255, 255);
+  box-shadow: 3px 3px 3px;
+  transform: translate(-1px, -1px);
+}
+
+.btn:hover{
+  background-color: var(--main-color);
+}
+
+
+
+/* secrion two start */
+.modal-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    display: block;
-    border-radius: rgb(0, 0, 0);
-    color: rgb(0, 0, 0);
-    outline: none;
-    background-color:rgb(255, 255, 255);
-    box-shadow: 3px 3px 3px;
-    transform: translate(-1px, -1px);
-  }
+    height: 100%;
+    background: rgba(13, 127, 209, 0.5);
+    display: grid;
+    place-items: center;
+    transition: var(--transition);
+    visibility:hidden;
+    z-index: 10;
+}
 
-  .btn:hover{
-    background-color: var(--main-color);
-  }
+.modal-overlay.active {
+  visibility: visible;
+}
 
 
+.modal-container {
+  background-color: black;
+  color: black;
+  border-radius: 15px;
+  padding: 80px;
+  text-align: center;
+  width: 100%;
+  box-shadow: 15px 15px 15px rgb(12, 12, 12);
 
-  /* secrion two start */
+}
 
-  .modal-overlay{
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(13, 127, 209, 0.5);
-      display: grid;
-      place-items: center;
-      transition: var(--transition);
-      visibility:hidden;
-      z-index: 10;
-  }
-
-  .modal-overlay.active {
-    visibility: visible;
-  }
-  
-  
-  .modal-container {
-    background-color: black;
-    color: black;
-    border-radius: 15px;
-    padding: 80px;
-    text-align: center;
-    width: 100%;
-    box-shadow: 15px 15px 15px rgb(12, 12, 12);
-
-  }
-
-  .subtitle{
-    color: black;
-  }
+.subtitle{
+  color: black;
+}
 
 
 
-  .btn-close{
-    margin-top: 20px;
-    background-color: var(--main-color);
-    font-size: 20px;
-    padding: 20px;
-    cursor: pointer;
-  }
+.btn-close{
+  margin-top: 20px;
+  background-color: var(--main-color);
+  font-size: 20px;
+  padding: 20px;
+  cursor: pointer;
+}
 
-  #menu {
-    background-color: antiquewhite;
-    margin-top: 50px;
-    padding: 20px;
-    border: 2px solid var(--main-color);    
-  }
+#menu {
+  background-color: antiquewhite;
+  margin-top: 50px;
+  padding: 20px;
+  border: 2px solid var(--main-color);    
+}
 
-  .insturctions{
-    background-color: rgb(152, 152, 163);
-    padding:5px;
-  }
+.insturctions{
+  background-color: rgb(152, 152, 163);
+  padding:5px;
+}
 
 
-  .ul{
-    background-color: antiquewhite;
-  }
+.ul{
+  background-color: antiquewhite;
+}
 
-  .header{
-   font-size: 55px;
-   font-weight: bold;
+.header{
+  font-size: 55px;
+  font-weight: bold;
+}
 
-  }
+.list-item{
+  display: flex;
+  margin: 1px;
+  font-style:oblique;
+  font-size: 17px;
+  border: 1px solid black;
+  padding: 4px;
+  max-width:600px;
+}
