@@ -5,46 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home-restaurant-tracker</title>
+    <!-- bulma cdn -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css" integrity="sha384-3B6NwesSXE7YJlcLI9RpRqGf2p/EgVH8BgoKTaUrmKNDkHPStTQ3EyoYjCGXaOTS" crossorigin="anonymous">
+    <!-- css link -->
     <link rel="stylesheet" href="./assets/css/recipe.css">
 </head>
 
 <body>
-    <!-- Find a recipe -->
-    <section class="hero is-info">
-        <div class="container">
-            <h1 class="level-item has-text-centered">Any Recipe For Any Occassion!</h1>
-            <form class="hero-body">
-                <label class="form-label" for="username">Find a recipe</label>
-                <input type="text" placeholder="Type " id="inputId" autofocus="true" class="form-input is-full">
-                <button type="button" id="button" class="btn is-full is-link">Search</button>
-            </form>
-        </div>
-    </section>
+    <!-- section find recipe start -->
+    <section class="hero is-info" id="main-section">
+        <div class="main-section-content">
 
-    <!-- Search results -->
-    <section class="hero is-danger is-fullheight">
-        <div class="hero-body">
-            <div class="hero-info">
-                <p class="title">
-                    Results
-                </p>
-                <p class="subtitle">
-                    Follow the steps and enjoy!
-                </p>
+            <div class="container" id="main-row">
+                <h1 class="level-item has-text-centered is-size-1">Any Recipe For Any Occassion!</h1>
+                <form class="hero-body">
+                    <label class="form-label" for="username">Find a recipe</label>
+                    <input type="text" placeholder="Search" id="inputId" autofocus="true" class="form-input is-full mt-5">
+                    <button type="button" id="button-search" class="btn is-full is-link mt-2 is-rounded">Search</button>
+                </form>
             </div>
-        </div>
-
-        <section class="">
-            <div id="menu">
-
-            </div>
-        </section>
+                        
+            <a href="weather.html"><button class="button is-danger is-active">Back to weather App</button></a>
+        </div>  
 
     </section>
+      <!-- section find recipe ends -->
 
 
+    <!--section display results start-->
+    <section class="hero is-info section-two">
+        <div class="modal-overlay">
+            <div class="container modal-container"  id="main-row">
+                <div class="hero-info">
+                    <p class="title">Results</p>
+                    <p class="subtitle has-text-black is-size-2">Follow the steps and enjoy!</p>
+                </div>
 
+                <div id="menu">
+                    <ul class="menu-result">
+                        <li class="mealName"></li>
+                        <li class="instructions"></li>
+
+
+                    </ul>
+                </div>
+
+                <button class="btn-close">Search again</button>
+            </div>                 
+        </div>    
+    </section>
+    <!-- section display results ends -->
     <script src="./assets/js/script.js"></script>
 
 </body>

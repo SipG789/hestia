@@ -32,10 +32,6 @@ var seattle = document.getElementById('city-seattle-value');
 var denver = document.getElementById('city-denver-value');
 var atlanta = document.getElementById('city-atlanta-value');
 var sanAntonio = document.getElementById('city-san-antonio-value');
-// console.log(`new york is:${newYork}`);
-// coord: {lon: -97.7431, lat: 30.2672}
-// lat: 30.2672
-// lon: -97.7431
 
 
 function getApi (city){
@@ -43,8 +39,7 @@ function getApi (city){
 
   if(city){
     // //API url to get the weather data
-    var requestUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city.value},us&appid=${apiKey}`;   
-
+    var requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.value},us&appid=${apiKey}`;   
     fetch(requestUrl).then(function(response) {  // this will take the response and turn it to an object 
       // request was successful
       if (response.ok) {
@@ -71,18 +66,6 @@ function getApi (city){
           humidity.innerHTML = valueHumidityName;
           wind.innerHTML = valueWindName;
           temp.innerHTML = valueTempName;
-
-        
-        // response.json().then(function(data){
-        //   console.log(`data for onecall is: ${data}`);
-        //   for (i=0; i<=5; i++){ 
-        //   // var fiveDayForecast = data.daily[i];
-        //   var hum = document.querySelector('.day-humidity');
-        //   hum.textContent = data.daily[0].clouds
-          
-        //   }
-         
-        // });
         
         });
         
@@ -95,9 +78,9 @@ function getApi (city){
       console.error(error)
       alert("Unable to connect to weather");
     });
+  }
   } 
 };
-}
 
 
 function getApiFiveDay(latitude, longitude) {
@@ -108,7 +91,16 @@ function getApiFiveDay(latitude, longitude) {
     fetch( oneCallUrl).then(function(response) {  // this will take the response and turn it to an object 
       // request was successful
       if (response.ok) {
-
+        response.json().then(function(data){
+          console.log(`data for onecall is: ${data}`);
+          for (i=0; i<=5; i++){ 
+          // var fiveDayForecast = data.daily[i];
+          var hum = document.querySelector('.day-humidity');
+          hum.textContent = data.daily[0].clouds
+          
+          }
+         
+        });
        
       }else {
         alert('Error: city User Not Found');
@@ -120,11 +112,6 @@ function getApiFiveDay(latitude, longitude) {
       alert("Unable to connect to weather");
     });
   }
-
-
-  function displayResult(){
-    
-  } 
 
 
 searchBtn.addEventListener('click', getApi(userInput));
