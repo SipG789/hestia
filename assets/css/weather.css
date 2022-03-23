@@ -107,6 +107,6 @@ p.city:hover{
 }
 
 #home-weather-page{
-  background-image: url(/assets/images/weather.logo.png);
+  background-image: url(../images/weather.logo.png);
   background-position: center;
 }
