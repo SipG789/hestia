@@ -1,5 +1,8 @@
 var menu = document.getElementById('menu');
 var modal = document.querySelector('.modal-overlay');
+const hexArray = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
+const hexBtn  = document.getElementById('color-hex');
+const colorTwo = document.querySelector('.color');
 
 function getInputValue() {
   // Selecting the input element and get its value 
@@ -13,7 +16,6 @@ var apiCall = function(food) {
 // show the modal
 modal.style.visibility = 'visible'; 
 
-//var requestUrl1 = "https://cors-anywhere.herokuapp.com/" + "https://www.themealdb.com/api/json/v1/1/search.php?s=" + food;
 var requestUrl1 = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + food;
 
 fetch(requestUrl1)
@@ -21,46 +23,35 @@ fetch(requestUrl1)
   return response.json();
 })
 .then(function (data) {
-if( data.meals != null){
-  console.log("yes")
+if(data.meals != null){
 
-console.log(typeof(data.meals))
-console.log(data);
-// if(data.meals)
+console.log(data.meals)
 var meal = data.meals[0]
-
-
-var listGroupE1 = document.createElement("ul");//ul 
-listGroupE1.classList = 'ul'
-var listHeader = document.createElement('lh')
-listHeader.classList = 'header';
-var listInstructions = document.createElement('lh')
-listGroupE1.appendChild(listHeader)
-listGroupE1.appendChild(listInstructions)
-
-
+var listHeader = document.querySelector('.header-status');
+var listInstructions = document.querySelector('.header-header')
 
 for (var i = 1; i <= 20; i++){
   // creates dynamic response
   var listE1 =document.createElement("li")//li
-  listE1.className = 'list-item'
-  var ingredient = "strIngredient" + i;
-
+  listE1.classList ='list-item'
+  var ingredient = "strIngredient" + i
   if(meal[ingredient] != null && meal[ingredient] != ''){
     listE1.textContent = (meal[ingredient] + ",  " + meal['strMeasure' + i])//li + texts
-    listGroupE1.appendChild(listE1)//ul + li (text)
+    var listItems = document.querySelector('.list-items');
+    listItems.appendChild(listE1)//ul + li (text)    
   }
   
- 
-  // console.log(meal[ingredient].length)
 
-  listHeader.textContent = (meal['strMeal'])
-  listInstructions.textContent = (meal['strInstructions'])
+  listInstructions.textContent = (meal['strMeal'])
+  listHeader.textContent = (meal['strInstructions'])
+
 
 
 }
-menu.appendChild(listHeader);
-menu.appendChild(listGroupE1);//html + ul (li's)
+//YoutubeLink
+var link = document.querySelector('.link-content');
+link.innerHTML = ('<a href=" ' + meal['strYoutube'] + '">watch video</a>' )
+listHeader.appendChild(listHeader);
 }
 else{
  var error = document.createElement('h1')
@@ -78,10 +69,7 @@ function startAgain(){
   document.location.reload(true);
 }
 
-const hexArray = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
-const hexBtn  = document.getElementById('color-hex');
-const colorTwo = document.querySelector('.color');
-
+//add a listener to change the color every time you move the mouse
 hexBtn.addEventListener('mouseover', function(e){
   let hexColor ='#';
   for(let i= 0; i<6; i++){

@@ -83,12 +83,12 @@ h1 {
 
 
 .modal-container {
-  background-color: black;
+  background-color: rgb(100, 96, 96);
   color: black;
   border-radius: 15px;
-  padding: 80px;
+  padding: 50px;
   text-align: center;
-  width: 100%;
+  width:100%;
   box-shadow: 15px 15px 15px rgb(12, 12, 12);
 
 }
@@ -103,38 +103,65 @@ h1 {
   margin-top: 20px;
   background-color: var(--main-color);
   font-size: 20px;
-  padding: 20px;
+  padding: 10px;
   cursor: pointer;
 }
 
-#menu {
-  background-color: antiquewhite;
+#menu{
   margin-top: 50px;
   padding: 20px;
-  border: 2px solid var(--main-color);    
 }
-
-.insturctions{
-  background-color: rgb(152, 152, 163);
-  padding:5px;
-}
-
 
 .ul{
-  background-color: antiquewhite;
+  justify-content: space-between;
+  background-color: rgb(180, 165, 144);
+  width: 100%;
 }
 
-.header{
-  font-size: 55px;
-  font-weight: bold;
-}
-
-.list-item{
-  display: flex;
+.list-items{
+  width: 50%;
   margin: 1px;
   font-style:oblique;
-  font-size: 17px;
-  border: 1px solid black;
+  font-size: 15px;
+  border: 1px dotted black;
   padding: 4px;
-  max-width:600px;
 }
+.list-item{
+  border: 2px solid rgb(36, 34, 34);
+}
+
+.header-info{
+  background-color: rgb(22, 21, 21);
+}
+
+
+.header-status {
+  padding: 10px;
+  color: white;
+}
+
+.header-header{
+  color: white;
+}
+
+.link{
+  display: flex;
+  justify-content: end;
+  align-items: flex-end;
+  text-align: end;
+  width: 50%;
+  font-size: 32px;
+  background-image: url(/assets/images/youtube_hero_1200x675.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.link-content{
+background-color: rgb(224, 18, 18);
+padding: 1px;
+border-radius: 5px;
+color: white;
+}
+
+
