@@ -4,16 +4,28 @@ body{
   min-height: 100vh;
 }
 
+
+
+/* hero section start */
 .hero{
   text-align: center;
 }
+/* hero section ends */
 
-.column{
+
+
+
+/* main section start */
+.main-row{
   padding: 20px;
 }
 
 #col{
   padding: 35px;
+}
+
+ol li{
+ margin-top: 2.5px;
 }
 
 #col a{
@@ -28,8 +40,6 @@ body{
   border-radius: 15px;
 }
 
-
-
 button{
   background-color: white;
   border-radius: 15px;
@@ -37,6 +47,10 @@ button{
   font-size: 20px;
   cursor: pointer;
   text-decoration: none;
+}
+
+.recipe-btn{
+  margin-top: 10px;
 }
 
 .fa-solid{
@@ -57,5 +71,5 @@ font-size: 30px;
 .column:hover button{
   background-color: rgb(50, 218, 218);
 }
-
+/* main section end */
 

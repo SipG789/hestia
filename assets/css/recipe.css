@@ -4,6 +4,10 @@
   --color-white:white;
 }
 
+body{
+  width: 100%;
+}
+
 h1 {
     font-size: x-large;
     text-shadow: 15px 15px 15px #000000;
