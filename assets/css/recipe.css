@@ -81,7 +81,6 @@ h1 {
   visibility: visible;
 }
 
-
 .modal-container {
   background-color: rgb(100, 96, 96);
   color: black;
@@ -96,8 +95,6 @@ h1 {
 .subtitle{
   color: black;
 }
-
-
 
 .btn-close{
   margin-top: 20px;
@@ -116,6 +113,13 @@ h1 {
   justify-content: space-between;
   background-color: rgb(180, 165, 144);
   width: 100%;
+}
+
+.error{
+  margin-top: 15px;
+  background-color: red;
+  padding: 20px;
+  font-size: 28px;
 }
 
 .list-items{

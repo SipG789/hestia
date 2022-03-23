@@ -13,54 +13,48 @@ function getInputValue() {
 
 
 var apiCall = function(food) {
-// show the modal
-modal.style.visibility = 'visible'; 
+  // show the modal
+  modal.style.visibility = 'visible'; 
 
-var requestUrl1 = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + food;
+  var requestUrl1 = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + food;
 
-fetch(requestUrl1)
-.then(function (response){
-  return response.json();
-})
-.then(function (data) {
-if(data.meals != null){
+  fetch(requestUrl1)
+  .then(function (response){
+    return response.json();
+  })
+  .then(function (data) {
+  if(data.meals != null){
 
-console.log(data.meals)
-var meal = data.meals[0]
-var listHeader = document.querySelector('.header-status');
-var listInstructions = document.querySelector('.header-header')
+  console.log(data.meals)
+  var meal = data.meals[0]
+  var listHeader = document.querySelector('.header-status');
+  var listInstructions = document.querySelector('.header-header')
 
-for (var i = 1; i <= 20; i++){
-  // creates dynamic response
-  var listE1 =document.createElement("li")//li
-  listE1.classList ='list-item'
-  var ingredient = "strIngredient" + i
-  if(meal[ingredient] != null && meal[ingredient] != ''){
-    listE1.textContent = (meal[ingredient] + ",  " + meal['strMeasure' + i])//li + texts
-    var listItems = document.querySelector('.list-items');
-    listItems.appendChild(listE1)//ul + li (text)    
+  for (var i = 1; i <= 20; i++){
+    // creates dynamic response
+    var listE1 =document.createElement("li")//li
+    listE1.classList ='list-item'
+    var ingredient = "strIngredient" + i
+    if(meal[ingredient] != null && meal[ingredient] != ''){
+      listE1.textContent = (meal[ingredient] + ",  " + meal['strMeasure' + i])//li + texts
+      var listItems = document.querySelector('.list-items');
+      listItems.appendChild(listE1)//ul + li (text)    
+    }
+    
+    listInstructions.textContent = (meal['strMeal'])
+    listHeader.textContent = (meal['strInstructions'])
   }
-  
 
-  listInstructions.textContent = (meal['strMeal'])
-  listHeader.textContent = (meal['strInstructions'])
-
-
-
-}
-//YoutubeLink
-var link = document.querySelector('.link-content');
-link.innerHTML = ('<a href=" ' + meal['strYoutube'] + '">watch video</a>' )
-listHeader.appendChild(listHeader);
-}
-else{
- var error = document.createElement('h1')
- error.textContent = "No recipes found, try another one."
-menu.appendChild(error)
-}
-})
-
-
+  //added a youtube link
+  var link = document.querySelector('.link-content');
+  link.innerHTML = ('<a href=" ' + meal['strYoutube'] + '">watch video</a>')
+  listHeader.appendChild(listHeader);
+  }else{
+    var error = document.createElement('h1')
+    error.textContent = "No recipes found, try another one."
+    menu.appendChild(error)
+    }
+  })
 }
 
 // function that will take you over the first section and reload the page, to delete the previous searched item
@@ -87,7 +81,4 @@ function getRandomNumberTwo(){
 
 document.getElementById('button-search').addEventListener('click', getInputValue);
 document.querySelector('.btn-close').addEventListener('click', startAgain)
-
-
-
 
