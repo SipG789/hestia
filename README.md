@@ -1,13 +1,28 @@
-# Weather-Recipes-App
+# Weather-Dashboard# 
+## Purpose
+
 An app where you can get the weather of a specific location, and also many recipes that will allow you make a meal of your dreams while the weather is bad in your current location.
 
-Construction and Collaboration
-This week's challenge was tough to complete, as most people in this class were doing both Challenge 6 and Project 1. A lot of were struggling to grasp javaScript concepts and were discouraged. Last minute study sessions and video calls were a must, for me especially. The great part about this course is not only learning code, but learning to develop and collaborate with team members. What turned a Saturday night breakdown into a success was the classmates that pulled together to explain concepts and go over lessons.
 
-With their help I was able to accomplish the following:
-Build a js file from the ground up using jquery and vanilla js
-See multiple different ways of accomplishing what was in my head; ex: Using hardcoded elements and assigning text content/value to them versus dynamically creating them
-Use multiple APIs to call and input weather data for cities all over the world (except weather icons)
-Use bootstrap to create a polished UI
-Use moment.js to convert milliseconds into current time
-As always, comments are included in the files.
+# Built With
+- HTML
+- CSS
+- javaScript
+- Bulma CSS
+- Moment.js
+
+
+# Exmple
+
+## Weather App GIF 
+![](assets/images/README.gif)
+
+
+# live link  
+
+
+
+# Contribution
+## Made by [Jugurta Maouchi] 2022.
+
+©️2022 Weather, Inc
