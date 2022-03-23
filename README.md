@@ -23,6 +23,6 @@ An app where you can get the weather of a specific location, and also many recip
 
 
 # Contribution
-## Made by [Jugurta Maouchi] 2022.
+## Made by [Jugurta, Sip, Mark] 2022.
 
 ©️2022 Weather, Inc

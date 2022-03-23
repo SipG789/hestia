@@ -78,6 +78,7 @@ p.city:hover{
 }
 
 /* col two ends */
+
 #col-1{
   padding-left: 20px;
   padding-right: 20px;
@@ -107,6 +108,6 @@ p.city:hover{
 }
 
 #home-weather-page{
-  background-image: url(/assets/images/weather.logo.png);
+  background-image: url(../images/weather.logo.png);
   background-position: center;
 }
