@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather-Recipe-App</title>
+    <!-- bulma cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css" integrity="sha384-3B6NwesSXE7YJlcLI9RpRqGf2p/EgVH8BgoKTaUrmKNDkHPStTQ3EyoYjCGXaOTS" crossorigin="anonymous">
+    <!-- css link -->
+    <link rel="stylesheet" href="./assets/css/recipe.css">
+</head>
+
+<body id="color-hex">
+    <!-- section find recipe start -->
+    <section class="hero " id="main-section">
+        <div class="main-section-content">
+
+            <div class="container" id="main-row">
+                <h1 class="level-item has-text-centered is-size-1">Any Recipe For Any Occassion!</h1>
+                <form class="hero-body">
+                    <label class="form-label" for="username">Previous Search:</label>
+                    <label for="form-label" for="span" class="previous-search"></label>
+                    <input type="text" placeholder="Search" id="inputId" autofocus="true" class="form-input is-full mt-5 user-input">
+                    <button type="button" id="button-search" class="btn is-full is-link mt-2 is-rounded">Search</button>
+                </form>
+            </div>
+                        
+            <a href="weather.html"><button class="button is-danger is-active">Back to weather App</button></a>
+            <h2 style="display: none;">Background color: <span class="color">#2fd381</span></h2>
+        </div>  
+
+    </section>
+      <!-- section find recipe ends -->
+
+
+    <!--section display results start-->
+    <section class="hero is-info section-two">
+        <div class="modal-overlay">
+            <div class="container modal-container"  id="main-row">
+                <div class="hero-info">
+                    <p class="subtitle has-text-white is-size-2">Follow the steps and enjoy!</p>
+                </div>
+
+                <div id="menu">
+                    <!-- child one -->
+                    <div class="header-info column">
+                        <h3 class="header-header is-size-1"></h3>
+                        <h4 class="header-status"></h4>
+                    </div>
+                      
+                    <!-- child two -->
+                    <ul class="ul is-flex">
+                        <div class="list-items">
+                        </div>
+
+                        <div class="link">
+                            <div class="link-content"></div>
+                        </div>
+                    </ul>
+                </div>
+
+                <button class="btn-close">Search again</button>
+
+            </div>                 
+        </div>    
+    </section>
+    <!-- section display results ends -->
+
+    <!-- js link -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
