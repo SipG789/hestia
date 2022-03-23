@@ -4,13 +4,14 @@ const hexArray = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
 const hexBtn  = document.getElementById('color-hex');
 const colorTwo = document.querySelector('.color');
 
+
 function getInputValue() {
   // Selecting the input element and get its value 
   let food = document.getElementById("inputId").value;
+  console.log(food);
   // Displaying the value
   apiCall(food)
 }
-
 
 var apiCall = function(food) {
   // show the modal
@@ -55,7 +56,22 @@ var apiCall = function(food) {
     menu.appendChild(error)
     }
   })
+  
+// get item from local storage 
+var getItemFromLs =function(){
+  var showItemLs = document.querySelector('.previous-search');
+  var getItemLs = localStorage.getItem('food');
+  showItemLs.textContent = getItemLs;
 }
+getItemFromLs();
+
+// set item to local storage 
+var setItemToLs = function(){
+  localStorage.setItem('food', food)
+}  
+setItemToLs();
+}
+
 
 // function that will take you over the first section and reload the page, to delete the previous searched item
 function startAgain(){
@@ -81,4 +97,3 @@ function getRandomNumberTwo(){
 
 document.getElementById('button-search').addEventListener('click', getInputValue);
 document.querySelector('.btn-close').addEventListener('click', startAgain)
-
