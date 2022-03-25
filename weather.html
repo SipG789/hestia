@@ -10,14 +10,14 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css" integrity="sha384-3B6NwesSXE7YJlcLI9RpRqGf2p/EgVH8BgoKTaUrmKNDkHPStTQ3EyoYjCGXaOTS" crossorigin="anonymous">
   <!--Google fonts link-->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"/>
-  <!--CSS link-->
+  <!--Css link-->
   <link rel="stylesheet" href="./assets/css/weather.css">
   <title>Weather Recipes App</title>
 </head>
-<body>
+<body id="body">
   <!--header starts-->
-  <header class="hero-body is-text-center has-background-primary"id="weather-color"> 
-    <h1 class="is-flex is-align-items-center is-justify-content-center is-centered is-size-1"><strong>Weather Dashboard</strong></h1>
+  <header class="hero-body is-text-center" id="weather-color"> 
+    <h1 class="is-flex is-align-items-center is-justify-content-center is-centered is-size-1 "><strong class="header-heading">Weather Dashboard</strong></h1>
   </header>
    <!--header ends-->
 
@@ -67,14 +67,14 @@
       <!-- col two starts -->
       <div class="column m-5">       
           <div class="columns" id="city-infos">
-            <div class="column is-large is-fullwidth has" id="first-col">
+            <div class="column is-large is-fullwidth p-2" id="first-col">
               <p class="city-info"><strong><span class="current-city"></strong></span> <span class="city-date"></span></p>
               <p class="city-info">Temp:<span class="temp"></span></p>
               <p class="city-info">Wind:<span class="wind"></span></p>
               <p class="city-info">Humidity:<span class=" humidity"></span></p>
               <p class="city-info">UI Index:<span class="uv-index"></span></p>
             </div>
-            <div class="column is is-flex is-justify-content-space-between is-align-items-center" id="home-weather-page">
+            <div class="column is is-flex is-justify-content-space-between is-align-items-center" id="home-weather-page" style="border: 2px solid white;">
               <a href="index.html"><button class="is-size-4" id="home-btn">Back Home</button></a>
               <a href="recipes.html"><button class="is-size-4" id="home-btn">Get Recepi</button></a>
             </div>
@@ -91,7 +91,7 @@
 
               <!--row-two-col-two col-two first child-->
               <div class="column days-block" id="day-one-col_1">
-                <ul class="day-weather has-background-dark has-text-white is-size-4 p-5">
+                <ul class="day-weather has-background-dark has-text-white is-size-4 p-1">
                   <div class="day-weather-content">
                     <li>Date:<span class="day-date_1 m-1" id="span-space"></span></li>
                     <li>Humidity:<span class="day-humidity_1 m-3" id="span-space"></span></li>
@@ -105,7 +105,7 @@
 
               <!--row-two-col-two col-two second child-->
               <div class="column days-block" id="day-one-col_2">
-                <ul class="day-weather has-background-dark has-text-white is-size-4 p-5">
+                <ul class="day-weather has-background-dark has-text-white is-size-4 p-1">
                   <div class="day-weather-content" >
                     <li>Date:<span class="day-date_2 m-1" id="span-space"></span></li>
                     <li>Humidity:<span class="day-humidity_2 m-3" id="span-space"></span></li>
@@ -119,7 +119,7 @@
 
               <!--row-two-col-two col-two third child-->
               <div class="column days-block" id="day-one-col_3">
-                <ul class="day-weather has-background-dark has-text-white is-size-4 p-5">
+                <ul class="day-weather has-background-dark has-text-white is-size-4 p-1">
                   <div class="day-weather-content" >
                     <li>Date:<span class="day-date_3 m-1" id="span-space"></span></li>
                     <li>Humidity:<span class="day-humidity_3 m-3" id="span-space"></span></li>
@@ -133,7 +133,7 @@
 
               <!--row-two-col-two col-two fourth child-->
               <div class="column days-block" id="day-one-col_4">
-                <ul class="day-weather has-background-dark has-text-white is-size-4 p-5">
+                <ul class="day-weather has-background-dark has-text-white is-size-4 p-1">
                   <div class="day-weather-content">
                     <li>Date:<span class="day-date_4  m-1" id="span-space"></span></li>
                     <li>Humidity:<span class="day-humidity_4 m-3" id="span-space"></span></li>
@@ -147,7 +147,7 @@
               
               <!--row-two-col-two col-two fifth child-->
               <div class="column days-block" id="day-one-col_5">
-                <ul class="day-weather has-background-dark has-text-white is-size-4 p-5">
+                <ul class="day-weather has-background-dark has-text-white is-size-4 p-1">
                   <div class="day-weather-content" >
                     <li>Date:<span class="day-date_5 m-1" id="span-space"></span></li>
                     <li>Humidity:<span class="day-humidity_5 m-3" id="span-space"></span></li>
@@ -176,6 +176,7 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <!--Moment.js  cdn-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <!-- js link -->
   <script src="./assets/js/app.js"></script>
 </body>
 </html>

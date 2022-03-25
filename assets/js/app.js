@@ -9,6 +9,7 @@ var humidity = document.querySelector('.humidity ');
 var index = document.querySelector('.uv-index');
 var cityBtnSerach =  document.querySelectorAll('.city');
 var cityText = document.querySelectorAll('.city').textContent;
+var isDark =document.querySelector('.is-dark');
 
 
 // all elements that will listen for events
@@ -49,14 +50,14 @@ function getApi (city){
         response.json().then(function(data){
           console.log('data for request is', data);
           // getting the lat and lon of the current city data
-          var lat = data.coord.lat;
-          var lon = data.coord.lon;
+          var lat = data.coord.lat
+          var lon = data.coord.lon
           // get the name of the city selected
-          var name = data.name;
-          console.log(`city name is ${name}`);
-          currentCity.innerHTML = `Today weather for ${name}`
-          console.log(`lat is:${lat} long is${lon}`);
-         getApiFiveDay(lat, lon)
+          var name = data.name
+            console.log(`city name is ${name}`)
+            currentCity.innerHTML = `Today weather for ${name}`;
+            console.log(`lat is:${lat} long is${lon}`);
+          getApiFiveDay(lat, lon)
         });
         
       }else {
@@ -76,58 +77,87 @@ function getApi (city){
 
 //function to get the whole data by using the function getApi data response
 function getApiFiveDay(latitude, longitude) {
-    //check if the function is working 
-    console.log(`checking if the getApiFiveDay function is called`);
-    //calling the api and fetching it  
-    var oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly&units=imperial&appid=${apiKey}`;
-    fetch( oneCallUrl).then(function(response) {
-      //request was successful
-      if (response.ok) {
-        response.json().then(function(data){// this will take the response and turn it to an object 
-          console.log('data for onecall is:',data);
-          //calling the current data to display on the DOM 
-          var curentCitytime = data.current.dt
-          var date = moment.unix(curentCitytime).format('MM/DD/YYYY');
-            console.log(`date is:${date}`);
-            cityDate.innerHTML = date;
-            temp.innerHTML = data.current.temp;
-            humidity.innerHTML = data.current.humidity
-            wind.innerHTML = data.current.wind_speed
-            //change the color of the index if its low than 0
-            index.innerHTML = data.current.uvi
-          if(data.current.wind_speed <=0){
-             index.style.backgroundColor = 'red'
-          }else{
-            index.style.backgroundColor = 'green'
-          }
+  //check if the function is working 
+  console.log(`checking if the getApiFiveDay function is called`);
+  //calling the api and fetching it  
+  var oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly&units=imperial&appid=${apiKey}`;
+  fetch( oneCallUrl).then(function(response) {
+    //request was successful
+    if (response.ok) {
+      response.json().then(function(data){// this will take the response and turn it to an object 
+        console.log('data for onecall is:',data);
 
-          // using a for loop to display the data of the 5 days on the DOM
-          for (i=1; i<=6; i++){ 
-          // var fiveDayForecast = data.daily[i];
-            var dailyDateUnix = data.daily[i].dt
-            var dailyDate = moment.unix(dailyDateUnix).format('MM/DD/YYYY');
+      //calling the current data to display on the DOM 
+      var curentCitytime = data.current.dt
+      var date = moment.unix(curentCitytime).format('MM/DD/YYYY');
+        console.log(`date is:${date}`)
+        cityDate.innerHTML = date
+        temp.innerHTML = data.current.temp
+        humidity.innerHTML = data.current.humidity
+        wind.innerHTML = data.current.wind_speed
 
-            document.querySelector('.day-date_' + i).innerHTML = dailyDate;
-            document.querySelector('.day-date_' + i).style.backgroundColor ='green'
-            document.querySelector('.img_'+ i).src= `https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@2x.png`
-            document.querySelector('.day-humidity_' + i).innerHTML = data.daily[i].humidity + ' ' + '%';
-            document.querySelector('.day-temp_' + i).innerHTML = data.daily[i].temp.day + ' ' + '°F';
-            document.querySelector('.day-wind_' + i).innerHTML = data.daily[i].wind_speed + ' ' +'MPH';
-            document.querySelector('.day-ui-index_' + i).innerHTML = data.daily[i].uvi;
-          }        
-        });
-       
+      // getting the value of sunset and change the color using the darkMode function YYYYAAAAAYYYYYY!!!
+      var sunDown = data.current.sunset;
+        console.log(`sun down in unix time down is ${sunDown}`);
+        var sunDownUnix = JSON.parse(moment.unix(sunDown).format('h'));
+        console.log(`sundown unix is:${sunDownUnix}`);
+ 
+      darkMode(sunDownUnix);
+
+      // using a for loop to display the data of the 5 days on the DOM
+      for (i=1; i<=6; i++){ 
+      var dailyDateUnix = data.daily[i].dt
+      // var fiveDayForecast = data.daily[i];
+      var dailyDate = moment.unix(dailyDateUnix).format('MM/DD/YYYY');
+      //get the uvi value
+      index.innerHTML = data.daily[0].uvi
+      //if the uvi is low or equal to 0 change the color to red, of its greater than 0 leave it green 
+      if( data.daily[0].uvi<=0){
+        index.style.backgroundColor = 'red'
       }else{
-        alert('Error: city User Not Found');
+        index.style.backgroundColor = 'green'
       }
+      document.querySelector('.day-date_' + i).innerHTML = dailyDate;
+      document.querySelector('.day-date_' + i).style.backgroundColor ='green'
+      document.querySelector('.img_'+ i).src= `https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@2x.png`
+      document.querySelector('.day-humidity_' + i).innerHTML = data.daily[i].humidity + ' ' + '%'
+      document.querySelector('.day-temp_' + i).innerHTML = data.daily[i].temp.day + ' ' + '°F'
+      document.querySelector('.day-wind_' + i).innerHTML = data.daily[i].wind_speed + ' ' +'MPH'
+      document.querySelector('.day-ui-index_' + i).innerHTML = data.daily[i].uvi
+      }
+        
+      });
+      
+    }else{
+      alert('Error: city User Not Found');
+    }
 
-    }).catch(function(error) {
-      // Notice this `.catch()` getting chained onto the end of the `.then()` method
-      console.error(error)
-      alert("Unable to connect to weather");
-    });
+  }).catch(function(error) {
+    // Notice this `.catch()` getting chained onto the end of the `.then()` method
+    console.error(error)
+    alert("Unable to connect to weather");
+  });
+}
+
+var darkMode = function(sunsett){
+  var currentTime =  moment().format('h')
+    console.log(`current time is:${currentTime}`);
+
+  if(currentTime >= sunsett){
+    var body = document.getElementById('body')
+    var header = document.getElementById('weather-color')
+    var headerHeading = document.querySelector('.header-heading')
+    var cityInfo = document.getElementById('first-col');
+
+    body.style.backgroundColor = 'black';
+    header.style.backgroundColor = 'transparent'
+    headerHeading.style.color = 'white'
+    header.style.borderBottom = '2px solid  white'
+    body.style.color = 'white';
+    cityInfo.style.border = '2px solid white';
+    currentCity.style.color = 'white'
   }
-
+}
 
 
 // all event listeners
