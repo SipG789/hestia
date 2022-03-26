@@ -26,8 +26,7 @@ var apiCall = function(food) {
   .then(function (data) {
   if(data.meals != null){
   
-  // add a random number to get a random meal
-  var randomNumber =  Math.floor(Math.random() * 25);
+  var randomNumber =  Math.floor(Math.random() * 24);
   console.log(randomNumber);
   
   console.log(data.meals)
@@ -48,12 +47,12 @@ var apiCall = function(food) {
     
     listInstructions.textContent = (meal['strMeal'])
     listHeader.textContent = (meal['strInstructions'])
+    
+    //added a youtube link
+    var link = document.querySelector('.link-content');
+    link.innerHTML = ('<a href=" ' + meal['strYoutube'] + '">watch video</a>')
   }
 
-  //added a youtube link
-  var link = document.querySelector('.link-content');
-  link.innerHTML = ('<a href=" ' + meal['strYoutube'] + '">watch video</a>')
-  listHeader.appendChild(listHeader);
   }else{
     var error = document.createElement('h1')
     error.textContent = "No recipes found, try another one."
@@ -61,13 +60,7 @@ var apiCall = function(food) {
     }
   })
   
-// get item from local storage 
-var getItemFromLs =function(){
-  var showItemLs = document.querySelector('.previous-search');
-  var getItemLs = localStorage.getItem('food');
-  showItemLs.textContent = getItemLs;
-}
-getItemFromLs();
+
 
 // set item to local storage 
 var setItemToLs = function(){
@@ -76,6 +69,13 @@ var setItemToLs = function(){
 setItemToLs();
 }
 
+// get item from local storage 
+var getItemFromLs =function(){
+  var showItemLs = document.querySelector('.previous-search');
+  var getItemLs = localStorage.getItem('food');
+  showItemLs.textContent = getItemLs;
+}
+getItemFromLs();
 
 // function that will take you over the first section and reload the page, to delete the previous searched item
 function startAgain(){

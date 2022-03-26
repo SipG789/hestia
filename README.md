@@ -10,7 +10,8 @@ An app where you can get the weather of a specific location, and also many recip
 - javaScript
 - Bulma CSS
 - Moment.js
-
+- Weather API 
+- Recipe API 
 
 # Exmple
 
@@ -19,10 +20,10 @@ An app where you can get the weather of a specific location, and also many recip
 
 
 # live link  
-
+https://sipg789.github.io/hestia/recipes.html
 
 
 # Contribution
 ## Made by [Jugurta, Sip, Mark] 2022.
 
-©️2022 Weather, Inc
+©️2022 Weather-Recipe-App, Inc
