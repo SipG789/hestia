@@ -25,9 +25,10 @@ var apiCall = function(food) {
   })
   .then(function (data) {
   if(data.meals != null){
-  
-  // add a random number to get a random meal
-  var randomNumber =  Math.floor(Math.random() * 25);
+
+    var endnum = data.meals.length
+    
+    var randomNumber =  Math.floor(Math.random() * endnum);
   console.log(randomNumber);
   
   console.log(data.meals)
