@@ -117,7 +117,7 @@ function getApiFiveDay(latitude, longitude) {
       }else{
         index.style.backgroundColor = 'green'
       }
-      document.querySelector('.day-date_' + i).innerHTML = dailyDate;
+      document.querySelector('.day-date_' + i).innerHTML= dailyDate;
       document.querySelector('.day-date_' + i).style.backgroundColor ='green'
       document.querySelector('.img_'+ i).src= `https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@2x.png`
       document.querySelector('.day-humidity_' + i).innerHTML = data.daily[i].humidity + ' ' + '%'
@@ -139,23 +139,36 @@ function getApiFiveDay(latitude, longitude) {
   });
 }
 
+
+//dark mode function that will give us different style on night times 
 var darkMode = function(sunsett){
   var currentTime =  moment().format('h')
     console.log(`current time is:${currentTime}`);
 
-  if(currentTime >= sunsett){
+  if(currentTime > sunsett){
+    // all this will get called whenver the if statement is meet 
     var body = document.getElementById('body')
     var header = document.getElementById('weather-color')
+    var searchCol = document.getElementById('col-1');
+    var searchHeading = document.querySelector('.search-heading')
+    var headerHr = document.querySelector('.search-hr')
     var headerHeading = document.querySelector('.header-heading')
     var cityInfo = document.getElementById('first-col');
 
-    body.style.backgroundColor = 'black';
-    header.style.backgroundColor = 'transparent'
-    headerHeading.style.color = 'white'
-    header.style.borderBottom = '2px solid  white'
+    body.classList.toggle('body-night')
     body.style.color = 'white';
-    cityInfo.style.border = '2px solid white';
+    header.style.backgroundColor = 'transparent'
+    header.style.borderBottom = '2px solid  white'
+    searchCol.classList.toggle('body-night')
+    searchCol.style.border = '2px solid white'
+    searchHeading.style.color = 'white'
+    headerHr.style.backgroundColor = 'white'
+    headerHeading.style.color = 'white'
+    cityInfo.style.border = '2px solid white'
     currentCity.style.color = 'white'
+  }
+  else{
+    return getApi(sanAntonio);
   }
 }
 

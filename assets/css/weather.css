@@ -5,6 +5,10 @@
 }
 
 /* header starts */
+.body-night{
+  background-image: url(../images/pexels-photo-631477.jpeg);
+}
+
 header{
   background-color: var(--main-color);
 }
@@ -17,6 +21,10 @@ h2{
 
 
 /* col one starts */
+.search-hr{
+  background-color: black;
+}
+
 p.city{
   font-size: 20px;
   font-weight: bold;
