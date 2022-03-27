@@ -5,6 +5,14 @@
 }
 
 /* header starts */
+.body-night{
+  background-image: url(../images/pexels-photo-631477.jpeg);
+}
+
+header{
+  background-color: var(--main-color);
+}
+
 h2{
   font-size: 45px;
 }
@@ -13,6 +21,10 @@ h2{
 
 
 /* col one starts */
+.search-hr{
+  background-color: black;
+}
+
 p.city{
   font-size: 20px;
   font-weight: bold;
@@ -54,38 +66,17 @@ p.city:hover{
 
 /* col two starts */
 .city-info{
-  font-size: 38px;
+  font-size: 30px;
   margin-top:25px;
 }
 
-#day-col{
-  font-size: 25px;
-  background-color: rgb(61, 55, 55);
-  padding: 10px;
-  color: white;
-  margin: 10px;
-  min-height: 30vh;
-  cursor: pointer;
-}
-#day-col:hover{
-  background-color: var(--main-color);
-  color: var(--color-black);
-  border-radius: 5px;
-}
-
-.next-days{
-  margin: 15px;
-}
-
 /* col two ends */
-
 #col-1{
+  background-color: bisque;
   padding-left: 20px;
   padding-right: 20px;
   margin-top: 10px;
-  border-right: 2px solid black;
-  background-color: bisque;
-
+  border-right: 2px solid var(--color-black);
 }
 
 #city-infos{
@@ -110,4 +101,6 @@ p.city:hover{
 #home-weather-page{
   background-image: url(../images/weather.logo.png);
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
